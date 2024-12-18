@@ -135,7 +135,7 @@ function openCardModal(card) {
     modal.style.display = 'flex';
     setTimeout(() => {
         modal.classList.add('flipped');
-    }, 1000);
+    }, 300);
 }
 document.querySelector('.close-modal').addEventListener('click', () => {
     const modal = document.getElementById('cardModal');
