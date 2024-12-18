@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard App</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Cards</a>
+            <a href="About.html">About</a>
+            <input type="text" id="searchInput" placeholder="Search cards...">
+        </nav>
+    </header>
+
+    <main>
+        <div class="action-buttons">
+            <button id="showFormButton" class="form-submit-btn">Add Card</button>
+            <button id="deleteSelectedButton">Delete Selected</button>
+        </div>
+
+        <div class="form-popup-wrapper" id="formPopupWrapper">
+            <div class="form-container">
+                <form id="addCardForm">
+                    <div class="form-group">
+                        <label for="cardName">Question</label>
+                        <input type="text" id="cardName" name="cardName" required placeholder="Enter your card question">
+                    </div>
+                    <div class="form-group">
+                        <label for="cardCode">Solution</label>
+                        <textarea name="cardCode" id="cardCode" rows="5" required placeholder="Enter your card solution"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="textToggle">Content Type</label>
+                        <select id="textToggle" name="textToggle">
+                            <option value="plain">Plain Text</option>
+                            <option value="code">Programming Code</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="languageSelectGroup" style="display: none;">
+                        <label for="languageSelect">Language</label>
+                        <select id="languageSelect" name="languageSelect">
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C++</option>
+                            <option value="css">CSS</option>
+                            <option value="html">HTML</option>
+                        </select>
+                    </div>
+                    <button class="form-submit-btn" type="submit">Create Card</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="cardModal" class="card-modal">
+            <div class="card-modal-content">
+                <button class="close-modal">&times;</button>
+                <div class="innerCard">
+                    <div class="frontSide">
+                        <h2 id="modalFrontTitle"></h2>
+                    </div>
+                    <div class="backSide">
+<!--                        <h3>Solution:</h3>-->
+                        <div id="modalBackContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-list" id="card-list"></div>
+    </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-clike.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+<script src="/script.js"></script>
+</body>
+</html>
