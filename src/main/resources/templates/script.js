@@ -21,7 +21,7 @@ document.getElementById('addCardForm').addEventListener('submit', async (event) 
 
     console.log(`Name: ${name}, Code: ${code}, ContentType: ${contentType}, Language: ${language}`);
 
-    const response = await fetch('http://localhost:8080/addCard', {
+    const response = await fetch('https://cards-production-308b.up.railway.app/addCard', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ document.getElementById('deleteSelectedButton').addEventListener('click', async 
 
     console.log('Selected IDs:', selectedIds); // Debugging statement
 
-    const response = await fetch('http://localhost:8080/deleteCards', {
+    const response = await fetch('https://cards-production-308b.up.railway.app/deleteCards', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -96,7 +96,7 @@ function createCard(card) {
         e.stopPropagation();
         const selectedIds = [card.idAsString];
 
-        const response = await fetch('http://localhost:8080/deleteCards', {
+        const response = await fetch('https://cards-production-308b.up.railway.app/deleteCards', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -151,7 +151,7 @@ document.querySelector('.close-modal').addEventListener('click', () => {
 
 
 async function getCards() {
-    const response = await fetch('http://localhost:8080/cards');
+    const response = await fetch('https://cards-production-308b.up.railway.app/cards');
     if (response.ok) {
         const text = await response.text();
         return text ? JSON.parse(text) : [];
